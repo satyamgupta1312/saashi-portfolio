@@ -153,6 +153,37 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-
 footer .logo{font-size:21px}
 footer .fnote{font-size:13.5px;color:var(--muted)}
 
+/* ---------- VIEW BUTTON + MORE PROJECTS ---------- */
+.case .view-btn{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:600;color:#e8895f;background:transparent;border:1px solid #3d352d;padding:7px 14px;border-radius:100px;cursor:pointer;transition:all .2s;font-family:inherit}
+.case .view-btn:hover{background:rgba(209,85,46,.16);border-color:#e8895f;color:#fff}
+.case .view-btn svg,.mini-case .view-btn svg{width:14px;height:14px}
+.more-wrap{margin-top:60px}
+.more-wrap .eyebrow{color:#e8895f;display:block;text-align:center}
+.more-wrap h3{font-family:'Fraunces',serif;font-weight:500;font-size:28px;color:#fff;text-align:center;margin:10px 0 30px;letter-spacing:-.01em}
+.more-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.mini-case{background:#231e19;border:1px solid #362f28;border-radius:14px;padding:22px;transition:transform .2s,border-color .2s}
+.mini-case:hover{transform:translateY(-3px);border-color:#5a4d40}
+.mini-case .ctag{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#e8895f;margin-bottom:9px}
+.mini-case h4{font-family:'Fraunces',serif;font-weight:500;font-size:19px;color:#fff;margin-bottom:8px}
+.mini-case p{font-size:13.5px;color:#b8ac9d;margin-bottom:12px;line-height:1.5}
+.mini-case .tech{display:flex;flex-wrap:wrap;gap:6px}
+.mini-case .tech span{font-size:11.5px;color:#b8ac9d;border:1px solid #3d352d;padding:3px 9px;border-radius:100px}
+.mini-case .view-btn{margin-top:12px;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:#e8895f;background:transparent;border:1px solid #3d352d;padding:6px 12px;border-radius:100px;cursor:pointer;font-family:inherit;transition:all .2s}
+.mini-case .view-btn:hover{background:rgba(209,85,46,.16);border-color:#e8895f;color:#fff}
+
+/* ---------- LIGHTBOX ---------- */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(12,9,7,.95);display:none;align-items:center;justify-content:center;flex-direction:column;padding:24px}
+.lb.open{display:flex}
+.lb-title{color:#fff;font-family:'Fraunces',serif;font-size:22px;margin-bottom:14px;text-align:center;padding:0 60px}
+.lb-stage{position:relative;display:flex;align-items:center;justify-content:center;width:100%;max-width:1040px}
+.lb-img{max-width:88vw;max-height:72vh;border-radius:10px;box-shadow:0 24px 70px rgba(0,0,0,.6);background:#fff}
+.lb-btn{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:none;background:rgba(255,255,255,.12);color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb-btn:hover{background:rgba(255,255,255,.26)}
+.lb-prev{left:6px}.lb-next{right:6px}
+.lb-close{position:absolute;top:18px;right:22px;width:42px;height:42px;border-radius:50%;border:none;background:rgba(255,255,255,.12);color:#fff;font-size:26px;line-height:1;cursor:pointer}
+.lb-close:hover{background:rgba(255,255,255,.26)}
+.lb-counter{color:#c9bdb0;font-size:13.5px;margin-top:14px;letter-spacing:.04em}
+
 /* ---------- REVEAL ---------- */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .reveal.in{opacity:1;transform:none}
@@ -357,6 +388,37 @@ footer .fnote{font-size:13.5px;color:var(--muted)}
       </div>
 
     </div>
+
+    <div class="more-wrap reveal">
+      <span class="eyebrow">Also built</span>
+      <h3>More projects</h3>
+      <div class="more-grid">
+        <div class="mini-case">
+          <div class="ctag">Automation · Bot</div>
+          <h4>JobBot</h4>
+          <p>An automated job-search &amp; apply bot — finds listings, tracks everything in a sheet, and auto-applies with duplicate detection.</p>
+          <div class="tech"><span>Python</span><span>Playwright</span><span>Sheets API</span></div>
+        </div>
+        <div class="mini-case">
+          <div class="ctag">Automation · Slack</div>
+          <h4>Geofence Bot</h4>
+          <p>A Slack bot that automates store boundary updates — WKT parsing, an approval workflow, and map verification.</p>
+          <div class="tech"><span>Python</span><span>Flask</span><span>Slack SDK</span><span>Shapely</span></div>
+        </div>
+        <div class="mini-case">
+          <div class="ctag">Data · Dashboards</div>
+          <h4>App Metrics</h4>
+          <p>Live analytics dashboards for product KPIs and engagement, built on a data warehouse with interactive charts.</p>
+          <div class="tech"><span>Python</span><span>Streamlit</span><span>BigQuery</span><span>Plotly</span></div>
+        </div>
+        <div class="mini-case">
+          <div class="ctag">Backend · Cloud</div>
+          <h4>Pricing Service</h4>
+          <p>A cloud-deployed pricing service with scheduled data jobs and warehouse integration on managed infrastructure.</p>
+          <div class="tech"><span>Python</span><span>Flask</span><span>BigQuery</span><span>Cloud Run</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -460,6 +522,56 @@ document.querySelectorAll('.reveal').forEach((el,i) => {
   el.style.transitionDelay = (i % 4) * 60 + 'ms';
   io.observe(el);
 });
+
+// ---------- lightbox for project screenshots ----------
+(function(){
+  const lb = document.createElement('div');
+  lb.className = 'lb';
+  lb.innerHTML =
+    '<button class="lb-close" aria-label="Close">&times;</button>' +
+    '<div class="lb-title"></div>' +
+    '<div class="lb-stage">' +
+      '<button class="lb-btn lb-prev" aria-label="Previous">&#8249;</button>' +
+      '<img class="lb-img" alt="Project screenshot">' +
+      '<button class="lb-btn lb-next" aria-label="Next">&#8250;</button>' +
+    '</div>' +
+    '<div class="lb-counter"></div>';
+  document.body.appendChild(lb);
+  const img = lb.querySelector('.lb-img');
+  const title = lb.querySelector('.lb-title');
+  const counter = lb.querySelector('.lb-counter');
+  const prev = lb.querySelector('.lb-prev');
+  const next = lb.querySelector('.lb-next');
+  let shots = [], idx = 0;
+  function render(){
+    img.src = shots[idx];
+    counter.textContent = (idx+1) + ' / ' + shots.length;
+    const multi = shots.length > 1;
+    prev.style.display = next.style.display = multi ? 'flex' : 'none';
+  }
+  function open(list, t){
+    shots = list; idx = 0; title.textContent = t || '';
+    render(); lb.classList.add('open'); document.body.style.overflow = 'hidden';
+  }
+  function close(){ lb.classList.remove('open'); document.body.style.overflow = ''; img.src = ''; }
+  prev.addEventListener('click', () => { idx = (idx-1+shots.length)%shots.length; render(); });
+  next.addEventListener('click', () => { idx = (idx+1)%shots.length; render(); });
+  lb.querySelector('.lb-close').addEventListener('click', close);
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') prev.click();
+    else if (e.key === 'ArrowRight') next.click();
+  });
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const raw = (btn.getAttribute('data-shots') || '').trim();
+      if (!raw) return;
+      open(raw.split(',').map(s => s.trim()).filter(Boolean), btn.getAttribute('data-title') || '');
+    });
+  });
+})();
 </script>
 </body>
 </html>
