@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saashi — App & Web Development Studio</title>
+<meta name="description" content="Saashi is a founder-led studio building mobile apps, web platforms, and premium business websites. Real products, shipped end-to-end.">
+<meta property="og:title" content="Saashi — App & Web Development Studio">
+<meta property="og:description" content="We design and build mobile apps, web platforms, and premium websites — shipped end-to-end.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1613;
+  --ink-soft:#4d453e;
+  --muted:#7d746b;
+  --paper:#faf7f2;
+  --paper-2:#f2ede4;
+  --line:#e7e0d5;
+  --accent:#d1552e;
+  --accent-deep:#b0421f;
+  --card:#ffffff;
+  --radius:18px;
+  --maxw:1140px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  background:var(--paper);color:var(--ink);
+  line-height:1.6;font-size:16.5px;font-weight:400;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.08;letter-spacing:-0.01em}
+.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.serif-accent{font-style:italic;color:var(--accent)}
+
+/* ---------- NAV ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(250,247,242,.82);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.scrolled{border-color:var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{font-family:'Fraunces',serif;font-size:25px;font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;margin-bottom:3px}
+.nav-links{display:flex;gap:34px;align-items:center;font-size:15px;font-weight:450}
+.nav-links a{color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:15px;padding:12px 22px;border-radius:100px;transition:transform .15s ease,box-shadow .2s,background .2s;cursor:pointer;border:none}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 26px -10px rgba(26,22,19,.6)}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:var(--accent-deep);transform:translateY(-2px);box-shadow:0 12px 28px -10px rgba(209,85,46,.6)}
+.btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px}
+.nav-toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.3s}
+
+/* ---------- HERO ---------- */
+.hero{padding:72px 0 40px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero .tagpill{display:inline-flex;align-items:center;gap:8px;background:var(--paper-2);border:1px solid var(--line);padding:7px 15px;border-radius:100px;font-size:13.5px;font-weight:500;color:var(--ink-soft);margin-bottom:26px}
+.hero .tagpill b{color:var(--accent);font-weight:600}
+.hero h1{font-size:clamp(42px,6vw,68px);margin-bottom:24px}
+.hero p.lead{font-size:19px;color:var(--ink-soft);max-width:520px;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.hero-note{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.hero-note svg{color:var(--accent);flex-shrink:0}
+.hero-visual{position:relative}
+.hero-card{background:var(--ink);border-radius:22px;padding:30px;color:var(--paper);box-shadow:0 30px 60px -24px rgba(26,22,19,.5);position:relative;overflow:hidden}
+.hero-card::before{content:"";position:absolute;top:-40%;right:-30%;width:70%;height:80%;background:radial-gradient(circle,rgba(209,85,46,.35),transparent 70%)}
+.hero-card .win{font-family:'Fraunces',serif;font-size:44px;font-weight:600;line-height:1}
+.hero-card .win small{display:block;font-family:'Inter';font-size:14px;font-weight:500;color:#c9bdb0;margin-top:8px;letter-spacing:0}
+.hero-card hr{border:none;border-top:1px solid rgba(255,255,255,.12);margin:22px 0}
+.hero-card .mini{display:flex;justify-content:space-between;font-size:14px;color:#d6ccc0;margin:9px 0}
+.hero-card .mini b{color:#fff;font-weight:600}
+
+/* ---------- MARQUEE / TECH STRIP ---------- */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2);margin-top:20px}
+.strip .wrap{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:18px;padding-bottom:18px}
+.strip .label{font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-right:6px}
+.chip{font-size:13.5px;font-weight:500;color:var(--ink-soft);background:#fff;border:1px solid var(--line);padding:6px 13px;border-radius:100px}
+
+/* ---------- SECTION SHELL ---------- */
+section.blk{padding:90px 0}
+.sec-head{max-width:640px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(30px,4vw,44px);margin:14px 0}
+.sec-head p{color:var(--ink-soft);font-size:17.5px}
+
+/* ---------- SERVICES ---------- */
+.services{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:32px;transition:transform .2s,box-shadow .25s,border-color .2s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 24px 48px -28px rgba(26,22,19,.4);border-color:#d8cfc0}
+.svc .ico{width:48px;height:48px;border-radius:12px;background:var(--paper-2);display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:20px}
+.svc h3{font-size:23px;margin-bottom:10px}
+.svc p{color:var(--ink-soft);font-size:15.5px;margin-bottom:16px}
+.svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.svc ul li{font-size:13px;color:var(--muted);background:var(--paper);border:1px solid var(--line);padding:4px 11px;border-radius:100px}
+
+/* ---------- WORK ---------- */
+.work-sec{background:var(--ink);color:var(--paper)}
+.work-sec .sec-head h2{color:var(--paper)}
+.work-sec .sec-head p{color:#c9bdb0}
+.work-sec .eyebrow{color:#e8895f}
+.work{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.case{background:#231e19;border:1px solid #362f28;border-radius:var(--radius);padding:30px;transition:transform .2s,border-color .2s,background .2s;position:relative;overflow:hidden}
+.case:hover{transform:translateY(-4px);border-color:#5a4d40;background:#28221c}
+.case .ctag{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#e8895f;margin-bottom:12px}
+.case h3{font-size:25px;color:#fff;margin-bottom:10px}
+.case .impact{display:inline-block;font-size:13.5px;font-weight:600;color:#fff;background:rgba(209,85,46,.9);padding:4px 12px;border-radius:100px;margin-bottom:14px}
+.case p{color:#cabfb2;font-size:15px;margin-bottom:16px}
+.case .tech{display:flex;flex-wrap:wrap;gap:7px}
+.case .tech span{font-size:12.5px;color:#b8ac9d;border:1px solid #3d352d;padding:3px 10px;border-radius:100px}
+.case.wide{grid-column:span 2}
+@media(min-width:781px){.case.wide{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}}
+
+/* ---------- PROCESS ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:step}
+.step{position:relative;padding-top:20px;border-top:2px solid var(--line)}
+.step .num{font-family:'Fraunces',serif;font-size:15px;font-weight:600;color:var(--accent);margin-bottom:10px}
+.step h3{font-size:20px;margin-bottom:8px}
+.step p{font-size:14.5px;color:var(--ink-soft)}
+
+/* ---------- ABOUT ---------- */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.about-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px}
+.about-card .who{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-deep));display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-size:26px;color:#fff;font-weight:600;flex-shrink:0}
+.about-card .who b{font-size:19px;display:block}
+.about-card .who span{font-size:14px;color:var(--muted)}
+.about-card .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+.about-card .stat b{font-family:'Fraunces',serif;font-size:28px;font-weight:600;color:var(--accent);display:block;line-height:1}
+.about-card .stat span{font-size:12.5px;color:var(--muted)}
+.about h2{font-size:clamp(28px,4vw,40px);margin:14px 0 18px}
+.about p{color:var(--ink-soft);font-size:16.5px;margin-bottom:16px}
+.about .honest{font-size:14.5px;color:var(--muted);border-left:3px solid var(--accent);padding-left:16px;font-style:italic}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--paper-2);border-radius:28px;padding:60px;text-align:center;position:relative;overflow:hidden}
+.contact h2{font-size:clamp(30px,4.5vw,48px);margin-bottom:16px}
+.contact p{color:var(--ink-soft);font-size:18px;max-width:520px;margin:0 auto 32px}
+.contact-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.contact-alt{margin-top:26px;font-size:15px;color:var(--muted);display:flex;gap:22px;justify-content:center;flex-wrap:wrap}
+.contact-alt a{display:inline-flex;align-items:center;gap:7px;color:var(--ink-soft)}
+.contact-alt a:hover{color:var(--accent)}
+
+/* ---------- FOOTER ---------- */
+footer{padding:44px 0 40px;border-top:1px solid var(--line);margin-top:90px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .logo{font-size:21px}
+footer .fnote{font-size:13.5px;color:var(--muted)}
+
+/* ---------- REVEAL ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-visual{max-width:420px}
+  .about{grid-template-columns:1fr;gap:36px}
+  .steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:780px){
+  .nav-links{position:fixed;inset:70px 0 auto 0;background:var(--paper);flex-direction:column;gap:0;padding:10px 24px 24px;border-bottom:1px solid var(--line);transform:translateY(-120%);transition:transform .35s ease;box-shadow:0 20px 40px -20px rgba(0,0,0,.2)}
+  .nav-links.open{transform:none}
+  .nav-links a{padding:14px 0;width:100%;border-bottom:1px solid var(--line);font-size:17px}
+  .nav-links .btn{margin-top:12px;justify-content:center}
+  .nav-toggle{display:block}
+  .services,.work{grid-template-columns:1fr}
+  .case.wide{grid-column:span 1}
+  section.blk{padding:64px 0}
+  .contact{padding:44px 24px}
+  .about-card .stat b{font-size:24px}
+}
+@media(max-width:480px){
+  .steps{grid-template-columns:1fr}
+  .hero-cta .btn,.contact-cta .btn{flex:1;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header id="top">
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo">Saashi<span class="dot"></span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <!-- Swap this WhatsApp number if it ever changes -->
+        <a href="https://wa.me/918987725306?text=Hi%20Saashi,%20I'd%20like%20to%20discuss%20a%20project" class="btn btn-accent" target="_blank" rel="noopener">Start a project</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal">
+        <span class="tagpill">🚀 Founder-led studio &nbsp;·&nbsp; <b>Available for new projects</b></span>
+        <h1>We build apps &amp; websites that <span class="serif-accent">actually ship.</span></h1>
+        <p class="lead">Saashi is a small, founder-led studio that designs and builds mobile apps, web platforms, and premium business websites — end to end, without the agency overhead.</p>
+        <div class="hero-cta">
+          <a href="https://wa.me/918987725306?text=Hi%20Saashi,%20I'd%20like%20to%20discuss%20a%20project" class="btn btn-accent" target="_blank" rel="noopener">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2s-1.2.3-3.8-.9-4.2-3.9-4.4-4.1-1.2-1.6-1.2-3 .8-2 1-2.3.5-.3.7-.3h.5c.2 0 .4-.1.7.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6s.7 1.2 1.5 1.9c1 .9 1.9 1.2 2.1 1.3s.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+            WhatsApp us
+          </a>
+          <a href="#work" class="btn btn-ghost">See our work</a>
+        </div>
+        <p class="hero-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Fixed-price, milestone-based. You own the code &amp; IP.
+        </p>
+      </div>
+      <div class="hero-visual reveal">
+        <div class="hero-card">
+          <div class="win">₹40L+<small>saved / year with one product we built &amp; shipped</small></div>
+          <hr>
+          <div class="mini"><span>Products shipped end-to-end</span><b>12+</b></div>
+          <div class="mini"><span>Platforms</span><b>iOS · Android · Web</b></div>
+          <div class="mini"><span>Engagement</span><b>Fixed-price · milestone</b></div>
+          <div class="mini"><span>Delivery</span><b>Website ~2–3 wks · App from ~1 month</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECH STRIP ============ -->
+<div class="strip">
+  <div class="wrap">
+    <span class="label">Built with</span>
+    <span class="chip">React</span>
+    <span class="chip">Flutter</span>
+    <span class="chip">Kotlin</span>
+    <span class="chip">NestJS</span>
+    <span class="chip">FastAPI</span>
+    <span class="chip">Node / Express</span>
+    <span class="chip">PostgreSQL</span>
+    <span class="chip">Supabase</span>
+    <span class="chip">Docker</span>
+    <span class="chip">AI / Automation</span>
+  </div>
+</div>
+
+<!-- ============ SERVICES ============ -->
+<section class="blk" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">What we do</span>
+      <h2>One studio, the whole build.</h2>
+      <p>From the first wireframe to a live product in the store — design, development, and launch under one roof.</p>
+    </div>
+    <div class="services">
+      <div class="svc reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2.5"/><line x1="9.5" y1="18.5" x2="14.5" y2="18.5"/></svg></div>
+        <h3>Mobile Apps</h3>
+        <p>Native and cross-platform apps for Android &amp; iOS — from single-purpose tools to two-sided marketplace platforms.</p>
+        <ul><li>Flutter</li><li>Kotlin</li><li>Play Store launch</li><li>Real-time / GPS</li></ul>
+      </div>
+      <div class="svc reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="15" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/></svg></div>
+        <h3>Web Apps &amp; Dashboards</h3>
+        <p>Admin panels, internal tools, and full web platforms with auth, workflows, and data at their core.</p>
+        <ul><li>React</li><li>NestJS / Express</li><li>Postgres</li><li>Dashboards</li></ul>
+      </div>
+      <div class="svc reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v14H3z"/><path d="M8 21h8M12 17v4"/><circle cx="8.5" cy="8" r="1.4"/><path d="m6 13 3-3 3 3 4-4 3 3"/></svg></div>
+        <h3>Premium Business Websites</h3>
+        <p>Portfolio &amp; brand sites where the design <em>is</em> the product — for interior designers, studios, and local businesses.</p>
+        <ul><li>Portfolio galleries</li><li>Local SEO</li><li>Lead capture</li><li>CMS optional</li></ul>
+      </div>
+      <div class="svc reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Automation &amp; AI</h3>
+        <p>Scrapers, bots, data pipelines, and AI assistants that cut manual work and replace expensive third-party tools.</p>
+        <ul><li>Playwright</li><li>Python</li><li>LLM integration</li><li>Slack / API bots</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="blk work-sec" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Selected work</span>
+      <h2>Real products. In production.</h2>
+      <p>A sample of what we've designed, built, and shipped — used daily by real teams and driving measurable business impact.</p>
+    </div>
+    <div class="work">
+
+      <div class="case wide reveal">
+        <div>
+          <div class="ctag">Price Intelligence · Automation</div>
+          <span class="impact">Saving ₹40L+ / year</span>
+          <h3>Price Benchmark</h3>
+          <p>An in-house competitor price-tracking engine that replaced a ₹3L/month third-party service. Scrapes 5 platforms and matches 3,600+ SKUs through a 7-stage confidence pipeline, with multi-city orchestration and styled Excel exports.</p>
+        </div>
+        <div>
+          <div class="tech"><span>Python</span><span>FastAPI</span><span>Playwright</span><span>React</span><span>SSE</span><span>openpyxl</span></div>
+          <p style="margin-top:16px;color:#a99d8f;font-size:13.5px">Result: 98.9% coverage · 96.7% price accuracy (same-day)</p>
+        </div>
+      </div>
+
+      <div class="case reveal">
+        <div class="ctag">Internal Platform · CMS</div>
+        <h3>Optimus — Widget CMS</h3>
+        <p>A drag-and-drop CMS used daily by ops &amp; marketing to manage a consumer app's homepage — config-driven widgets, live phone-emulator preview, maker-checker approval, undo/redo and version history.</p>
+        <div class="tech"><span>React 19</span><span>Express</span><span>Supabase</span><span>@dnd-kit</span><span>Tailwind</span></div>
+      </div>
+
+      <div class="case reveal">
+        <div class="ctag">Internal SaaS · HR Platform</div>
+        <h3>HRMS</h3>
+        <p>A full HR management system for a private company — employee records, payroll with branded PDF payslips (generated &amp; emailed), leave, attendance, expense claims, announcements and holidays. Role-based access (admin / manager / employee) with JWT auth and 2FA.</p>
+        <div class="tech"><span>React 19</span><span>FastAPI</span><span>PostgreSQL</span><span>Prisma</span><span>JWT + 2FA</span><span>ReportLab</span></div>
+      </div>
+
+      <div class="case reveal">
+        <div class="ctag">Internal Platform · Ticketing &amp; Ops</div>
+        <h3>Infra Ticketing System</h3>
+        <p>A dual internal platform for ~200 franchise stores — an infrastructure ticketing system plus an expense manager. Multi-step approval workflow (SLP → Area → Satellite → Finance → Paid), budget controls at 4 levels, 7 user roles, audit trail, and CSV export — with store &amp; sales data auto-synced from BigQuery.</p>
+        <div class="tech"><span>React</span><span>TypeScript</span><span>Node / Express</span><span>Prisma</span><span>BigQuery</span><span>Cloud Run</span></div>
+      </div>
+
+      <div class="case reveal">
+        <div class="ctag">New Vertical · Marketplace</div>
+        <h3>istrE3 — On-Demand Service</h3>
+        <p>An end-to-end on-demand ironing vertical: a 20+ state order machine, QR bag scanning, rider assignment, hub zones, and real-time WebSocket tracking — a two-sided platform from scratch.</p>
+        <div class="tech"><span>NestJS</span><span>React</span><span>PostgreSQL</span><span>Redis</span><span>Docker</span><span>Prisma</span></div>
+      </div>
+
+      <div class="case reveal">
+        <div class="ctag">Mobile · Real-Time GPS</div>
+        <h3>TrackMate / TrackPro</h3>
+        <p>A real-time GPS tracking Android app with background location services, paired with a web dashboard featuring interactive maps, geofence zones, and route history.</p>
+        <div class="tech"><span>Kotlin</span><span>Flutter</span><span>Jetpack Compose</span><span>React</span><span>Leaflet</span></div>
+      </div>
+
+      <div class="case reveal">
+        <div class="ctag">AI · Voice Assistant</div>
+        <h3>S.A.M — AI Assistant</h3>
+        <p>A voice-controlled AI assistant with smart-home control, Slack office automation, a desktop agent, and command routing over WebSocket — LLM-powered, end to end.</p>
+        <div class="tech"><span>Python</span><span>FastAPI</span><span>WebSocket</span><span>Gemini</span><span>Slack API</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="blk" id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How we work</span>
+      <h2>A clear path, no surprises.</h2>
+      <p>Fixed scope, fixed price, and milestone payments — so you always know where the project stands and what you're paying for.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">01</div><h3>Discovery</h3><p>We understand your users, scope, and goals — then send a written quote in 2–3 days. No guesswork.</p></div>
+      <div class="step reveal"><div class="num">02</div><h3>Design</h3><p>Wireframes and UI you can react to before a line of code is written. The build starts with alignment.</p></div>
+      <div class="step reveal"><div class="num">03</div><h3>Build</h3><p>Development in milestones with a working demo at each stage — you see progress, not promises.</p></div>
+      <div class="step reveal"><div class="num">04</div><h3>Launch &amp; Support</h3><p>Store submission, deployment, and handover. You own the code &amp; IP. Optional ongoing support.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="blk" id="about">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-card reveal">
+        <div class="who">
+          <div class="avatar">S</div>
+          <div><b>Satyam Gupta</b><span>Founder &amp; Product Engineer</span></div>
+        </div>
+        <p style="color:var(--ink-soft);font-size:15px;margin-bottom:22px">4+ years building products end-to-end at a fast-scaling startup — promoted through 6+ roles from operations to product engineering.</p>
+        <div class="stat-row">
+          <div class="stat"><b>12+</b><span>products shipped</span></div>
+          <div class="stat"><b>4+</b><span>years building</span></div>
+          <div class="stat"><b>₹40L+</b><span>saved / yr</span></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="eyebrow">Why Saashi</span>
+        <h2>Small studio. Serious execution.</h2>
+        <p>Saashi is founder-led, which means the person who scopes your project is the person who builds it. No account managers, no handoffs, no diluted vision — just direct, reliable delivery.</p>
+        <p>The name comes from home. Every project gets treated like it carries that name — because it does.</p>
+        <p class="honest">Product thinking, architecture, logic, and user flows are entirely ours. We build fast and modern with an AI-assisted workflow — which is exactly how we ship production products in weeks, not quarters.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="blk" id="contact">
+  <div class="wrap">
+    <div class="contact reveal">
+      <span class="eyebrow">Let's build</span>
+      <h2>Got an app or website in mind?</h2>
+      <p>Tell us what you're trying to build. We'll ask the right questions and come back with a clear, written quote.</p>
+      <div class="contact-cta">
+        <a href="https://wa.me/918987725306?text=Hi%20Saashi,%20I'd%20like%20to%20discuss%20a%20project" class="btn btn-accent" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2s-1.2.3-3.8-.9-4.2-3.9-4.4-4.1-1.2-1.6-1.2-3 .8-2 1-2.3.5-.3.7-.3h.5c.2 0 .4-.1.7.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6s.7 1.2 1.5 1.9c1 .9 1.9 1.2 2.1 1.3s.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <!-- Swap to a branded email (e.g. hello@yourdomain) once the domain is live -->
+        <a href="mailto:satyashi.tech@gmail.com?subject=Project%20enquiry%20—%20Saashi" class="btn btn-ghost">Email us</a>
+      </div>
+      <div class="contact-alt">
+        <a href="mailto:satyashi.tech@gmail.com"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg>satyashi.tech@gmail.com</a>
+        <a href="https://www.linkedin.com/in/satyam-gupta-a0737a1a5/" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3zM10 9h3.8v1.7h.1a4.2 4.2 0 0 1 3.8-2.1c4 0 4.8 2.6 4.8 6.1V21h-4v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9V21h-4z"/></svg>LinkedIn</a>
+        <a href="https://github.com/satyamgupta1312" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.4-3.4-1.4-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.4-2.2-.2-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.8-2.4 4.7-4.6 4.9.3.3.7 1 .7 2v3c0 .3.2.6.7.5A10 10 0 0 0 12 2Z"/></svg>GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo">Saashi<span class="dot"></span></a>
+    <span class="fnote">© <span id="yr"></span> Saashi — App &amp; Web Development Studio · Built in India</span>
+  </div>
+</footer>
+
+<script>
+// year
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// sticky nav shadow
+const header = document.getElementById('top');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// mobile nav
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+// reveal on scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach((el,i) => {
+  el.style.transitionDelay = (i % 4) * 60 + 'ms';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
