@@ -110,6 +110,29 @@ section.blk{padding:90px 0}
 .svc ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
 .svc ul li{font-size:13px;color:var(--muted);background:var(--paper);border:1px solid var(--line);padding:4px 11px;border-radius:100px}
 
+/* ---------- AI / DIGITAL TRANSFORMATION ---------- */
+.ai-sec{background:linear-gradient(180deg,#f2ede4,#ece3d5)}
+.ai-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.ai-copy h2{font-size:clamp(28px,4vw,42px);margin:14px 0 16px}
+.ai-copy>p{color:var(--ink-soft);font-size:17px}
+.ai-points{list-style:none;margin-top:24px;display:grid;gap:16px}
+.ai-points li{display:flex;gap:13px;align-items:flex-start;font-size:15.5px;color:var(--ink-soft)}
+.ai-points li .tick{width:26px;height:26px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ai-points li b{color:var(--ink);font-weight:600}
+.ba{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:0 30px 60px -34px rgba(26,22,19,.45)}
+.ba-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.ba-head .b-tag{color:var(--muted)}
+.ba-head .a-tag{color:var(--accent)}
+.ba-head .arw{color:var(--ink-soft);font-size:15px}
+.ba-cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.ba-list{list-style:none;display:grid;gap:12px}
+.ba-list li{font-size:13.5px;display:flex;gap:8px;align-items:flex-start;line-height:1.35}
+.ba-list li::before{font-weight:700;flex-shrink:0}
+.ba-list.before li{color:var(--muted)}
+.ba-list.before li::before{content:"✕";color:#c0392b}
+.ba-list.after li{color:var(--ink)}
+.ba-list.after li::before{content:"✓";color:#2e7d32}
+
 /* ---------- WORK ---------- */
 .work-sec{background:var(--ink);color:var(--paper)}
 .work-sec .sec-head h2{color:var(--paper)}
@@ -205,6 +228,7 @@ footer .fnote{font-size:13.5px;color:var(--muted)}
   .about{grid-template-columns:1fr;gap:36px}
   .steps{grid-template-columns:repeat(2,1fr)}
   .more-grid{grid-template-columns:repeat(2,1fr)}
+  .ai-grid{grid-template-columns:1fr;gap:32px}
 }
 @media(max-width:780px){
   .nav-links{position:fixed;inset:70px 0 auto 0;background:var(--paper);flex-direction:column;gap:0;padding:10px 24px 24px;border-bottom:1px solid var(--line);transform:translateY(-120%);transition:transform .35s ease;box-shadow:0 20px 40px -20px rgba(0,0,0,.2)}
@@ -334,6 +358,45 @@ footer .fnote{font-size:13.5px;color:var(--muted)}
         <h3>AI &amp; Digital Transformation</h3>
         <p>Take your business digital — all your data (orders, customers, inventory) in one dashboard on your phone, with AI insights and automation. From scattered Excel &amp; WhatsApp to one smart, AI-powered system.</p>
         <ul><li>Data dashboards</li><li>AI insights</li><li>Chatbots</li><li>Automation</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AI / DIGITAL TRANSFORMATION ============ -->
+<section class="blk ai-sec" id="ai">
+  <div class="wrap">
+    <div class="ai-grid">
+      <div class="ai-copy reveal">
+        <span class="eyebrow">AI &amp; Digital Transformation</span>
+        <h2>Make your business AI-ready.</h2>
+        <p>Still running on WhatsApp, Excel, and memory? We bring your whole business into one smart system — all your data in one place, with AI that actually helps you decide and automate.</p>
+        <ul class="ai-points">
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>One dashboard</b> — orders, customers &amp; inventory in one place, right on your phone.</span></li>
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>AI insights</b> — automatically spot your best-sellers, slow days, and trends.</span></li>
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Automation</b> — reminders, follow-ups &amp; reports done for you.</span></li>
+          <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Smart assistant</b> — a chatbot that answers your customers 24/7.</span></li>
+        </ul>
+        <a href="https://wa.me/918987725306?text=Hi%20Saashi,%20I'd%20like%20to%20make%20my%20business%20AI-ready" class="btn btn-accent" style="margin-top:28px" target="_blank" rel="noopener">See if AI fits your business →</a>
+      </div>
+      <div class="ba reveal">
+        <div class="ba-head"><span class="b-tag">Before</span><span class="arw">→</span><span class="a-tag">After</span></div>
+        <div class="ba-cols">
+          <ul class="ba-list before">
+            <li>Orders lost in WhatsApp chats</li>
+            <li>Payments tracked in a diary</li>
+            <li>Data in Excel &amp; in your head</li>
+            <li>Decisions on guesswork</li>
+            <li>Same queries answered all day</li>
+          </ul>
+          <ul class="ba-list after">
+            <li>One dashboard for everything</li>
+            <li>Orders &amp; payments auto-tracked</li>
+            <li>All data in one place</li>
+            <li>AI insights guide decisions</li>
+            <li>A chatbot handles queries 24/7</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
